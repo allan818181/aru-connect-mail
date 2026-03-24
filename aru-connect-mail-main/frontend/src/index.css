@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   🔵 ARU SUPER THEME — MULTI-PALETTE, NEON, GLASS, PREMIUM  
+   Fully upgraded modern version
+========================================================= */
+
+@layer base {
+  :root {
+    /* ================================
+       🎨 BASE LIGHT MODE COLORS 
+    ================================= */
+
+    --background: 210 20% 98%;
+    --foreground: 210 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+
+    --border: 210 20% 90%;
+    --shadow: 0 4px 20px hsl(210 80% 20% / 0.15);
+
+    /* ================================
+       🟦 ARU Blue Main 
+    ================================= */
+    --primary: 210 100% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    /* ================================
+       🟩 ARU Teal Accent 
+    ================================= */
+    --secondary: 180 100% 27%;
+    --secondary-foreground: white;
+
+    /* ================================
+       🟨 ARU Gold Highlight 
+    ================================= */
+    --aru-gold: 45 95% 55%;
+
+    /* ================================
+       🔵 Light Blue Accent 
+    ================================= */
+    --accent: 200 80% 92%;
+    --accent-foreground: 210 100% 20%;
+
+    /* ================================
+       🔥 Premium Gradients 
+    ================================= */
+    --gradient-primary: linear-gradient(135deg, #003366 0%, #008B8B 100%);
+    --gradient-gold: linear-gradient(135deg, #FFD56A 0%, #FFB300 100%);
+    --gradient-sunset: linear-gradient(135deg, #ff7a18 0%, #af002d 100%);
+    --gradient-neon: linear-gradient(135deg, #00eaff 0%, #0066ff 100%);
+    --gradient-hero:
+      linear-gradient(180deg, #003366 0%, #004c80 50%, #008B8B 100%);
+
+    /* ================================
+       🌫 Glass Effects 
+    ================================= */
+    --glass: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.25);
+
+    /* ================================
+       ✨ Shadows 
+    ================================= */
+    --shadow-soft: 0 10px 40px -8px rgba(0, 51, 102, 0.25);
+    --shadow-glow: 0 0 32px rgba(0, 139, 139, 0.4);
+    --shadow-deep: 0 12px 50px -8px rgba(0, 0, 0, 0.35);
+
+    /* ================================
+       🌀 Animations 
+    ================================= */
+    --float-speed: 3s;
+    --breath-speed: 6s;
+    --shimmer-speed: 2s;
+  }
+
+  /* ======================================================
+     🌙 DARK MODE (Premium Blue-Black Neon)
+  ====================================================== */
+  .dark {
+    --background: 220 40% 6%;
+    --foreground: 210 15% 95%;
+
+    --card: 220 40% 10%;
+    --card-foreground: white;
+
+    --border: 220 30% 18%;
+
+    --primary: 200 90% 60%;
+    --primary-foreground: 220 40% 10%;
+
+    --secondary: 180 70% 45%;
+    --secondary-foreground: black;
+
+    --accent: 210 40% 20%;
+    --accent-foreground: 200 90% 60%;
+
+    --glass: rgba(0, 0, 0, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    --shadow-soft: 0 10px 40px -8px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px rgba(0, 200, 255, 0.45);
+    --shadow-deep: 0 12px 50px -8px rgba(0, 0, 0, 0.75);
+
+    --gradient-primary: linear-gradient(135deg, #00101f 0%, #003366 100%);
+    --gradient-neon: linear-gradient(135deg, #00eaff 0%, #0077ff 100%);
+    --gradient-gold: linear-gradient(135deg, #ffd56a 0%, #ff9900 100%);
+  }
+}
+
+/* ======================================================
+   🔘 Base Elements
+====================================================== */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
+  }
+}
+
+/* ======================================================
+   ⭐ Utility Classes
+====================================================== */
+@layer utilities {
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-card {
+    background: var(--glass);
+    border-radius: 20px;
+    backdrop-filter: blur(24px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .float {
+    animation: float var(--float-speed) ease-in-out infinite;
+  }
+
+  .breath {
+    animation: breath var(--breath-speed) ease-in-out infinite;
+  }
+
+  .shimmer {
+    animation: shimmer var(--shimmer-speed) linear infinite;
+  }
+}
+
+/* ======================================================
+   🌀 Animations Keyframes
+====================================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes breath {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200%; }
+  100% { background-position: 200%; }
+}
+
+/* ======================================================
+   🧩 Components
+====================================================== */
+@layer components {
+  .btn-aru {
+    @apply px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+    @apply bg-primary text-primary-foreground shadow-soft;
+    @apply hover:shadow-glow hover:-translate-y-0.5;
+  }
+
+  .btn-aru-outline {
+    @apply px-6 py-3 rounded-xl font-semibold border-2 transition-all duration-300;
+    @apply border-primary text-primary hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .input-aru {
+    @apply w-full rounded-xl px-4 py-3 bg-background border text-foreground;
+    @apply transition-all duration-300 placeholder:text-muted-foreground;
+    @apply focus:ring-2 focus:ring-primary/50 focus:border-primary;
+  }
+
+  .card-aru {
+    @apply p-6 rounded-2xl shadow-soft bg-card border;
+  }
+}
+@layer utilities {
+  /* shadow utilities (declare these so @apply can use them) */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* existing utilities you may already have */
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* ... other utilities ... */
+}
