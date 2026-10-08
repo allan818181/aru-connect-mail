@@ -1,0 +1,11 @@
+.env
+*.log
+.history/
+.marscode/
+.vscode/
+.DS_Store
+node_modules/
+dist/
+build/
+.next/
+desktop.ini
